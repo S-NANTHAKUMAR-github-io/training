@@ -1,46 +1,20 @@
-import { useEffect, useState } from 'react';
 import './App.css';
-import Navbar from './Components/Navbar';
-import axios from 'axios';
-import Loader from './Components/Loader';
-import Posts from './Components/Posts';
-
-function App() {
-
-  const [posts, setposts] = useState(null)
-
-  useEffect(() => {
-
-    //axios method
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(res => setposts(res.data))
+import Navbar from './Component/Navbar';
+import Api from './api/Api';
+import Useeffect from './useeffect/Useeffect';
+import Lifecycle from './lifecycle/Lifecycle';
+//import React, { useState } from 'react';
 
 
-
-    //fetch method 
-    fetch("https://jsonplaceholder.typicode.com/posts")
-    .then(data => data.json())
-    .then(data => {
-      setposts(data);
-    })
-  }, [])
-  
+function App() { 
 
   return (
     <div className="App">
         <Navbar />
-        <div className='container'>
-          {
-            posts ?
-          (posts.map((post) => {
-                return <Posts key={post.id} title={post.title} body={post.body} />
-                  
-              })
-              
-            
-          ) : ( <Loader /> )
-          }
-        </div>
+        {/* <Hooks/> */}
+        {/* <Useeffect /> */}
+        <Lifecycle />       
+       
     </div>
   );
 }
