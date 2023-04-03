@@ -8,17 +8,18 @@ const client = new ApolloClient({
     cache: new InMemoryCache()
   });
 
-const FILMS_QUERY = gql`
-  {
-    launchesPast(limit: 10) {
-      id
-      mission_name
-    }
+const GET_DATA = gql`
+query {
+  data {
+    id
+    name
+    description
   }
+}
 `;
 
 export default function App() {
-  const { data, loading, error } = useQuery(FILMS_QUERY, client);
+  const { data, loading, error } = useQuery(GET_DATA, client);
   console.log("client:", client);
 
   if (loading) return "Loading...";
@@ -26,10 +27,9 @@ export default function App() {
 
   return (
     <div>
-      <h1>SpaceX Launches</h1>
       <ul>
-        {data.launchesPast.map((launch) => (
-          <li key={launch.id}>{launch.mission_name}</li>
+        {data.data.map((item) => (
+          <li key={item.id}>{item.name}</li>
         ))}
       </ul>
     </div>
