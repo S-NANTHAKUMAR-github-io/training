@@ -21,10 +21,13 @@ function Hooks() {
       .then(data => {
         setposts(data);
       })
+
+
+
     }, [])
     
   return (
-    //<div>Hooks</div>
+    
     <div className='container'>
     {
       posts ?
