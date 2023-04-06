@@ -7,10 +7,11 @@ import Useeffect from './useeffect/Useeffect';
 import Lifecycle from './lifecycle/Lifecycle';
 import UseQuery from './api/UseQuery';
 import Graphql from './Graphql/Graphql';
+import Infinite from './InfiniteScroll/Infinite';
 //import React, { useState } from 'react';
 
 const apolloClient = new ApolloClient({
-  uri: "https://example.com/graphql",
+  uri: "https://3f31-103-113-190-50.in.ngrok.io/v1/graphql",
   cache: new InMemoryCache()
 });
 
@@ -18,19 +19,20 @@ const apolloClient = new ApolloClient({
 function App() { 
 
   //const queryClient = new QueryClient
-  //const apolloClient = new ApolloClient
+  //const Client = new ApolloClient
 
   return (
-    <ApolloProvider client={apolloClient}>
+    //<ApolloProvider client={apolloClient}>
     <div className="App">
         <Navbar />
-        <Graphql />
+        <Infinite />
+        {/* <Graphql /> */}
         {/* <UseQuery /> */}
         {/* <Api/> */}
         {/* <Useeffect /> */}
         {/* <Lifecycle />        */}
     </div>
-    </ApolloProvider>
+   // </ApolloProvider>
   );
 }
 

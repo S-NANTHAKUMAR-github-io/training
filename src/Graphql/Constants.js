@@ -1,20 +1,21 @@
-import React from 'react';
-import {ApolloClient, InMemoryCache, gql} from '@apollo/client'
+import {gql} from '@apollo/client'
 
 
 
-export const client = new ApolloClient({
-    uri: 'https://api.spacex.land/graphql/',
-    cache: new InMemoryCache()
-  });
+// export const Client = new ApolloClient({
+//     uri: "https://51e6-103-113-190-39.in.ngrok.io/api/rest/local",
+//     cache: new InMemoryCache()
+//   });
 
 
 export const GET_DATA = gql`
-query {
-  data {
+query MyQuery {
+  users {
+    username
+    gender
+    age
     id
-    name
-    description
+    Mobile_Number
   }
 }
 `;
